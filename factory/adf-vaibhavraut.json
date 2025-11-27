@@ -1,0 +1,9 @@
+{
+	"name": "adf-vaibhavraut",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "886120b9-6be7-4a57-950b-55a30f2bea23",
+		"tenantId": "7fb819de-b952-47ae-86d7-e09b4497a081"
+	}
+}
