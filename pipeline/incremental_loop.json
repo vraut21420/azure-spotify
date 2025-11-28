@@ -3,11 +3,16 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
+				"name": "loopForAllParameters",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.loop_input",
+						"type": "Expression"
+					},
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "spotifybrownz",
@@ -77,7 +82,7 @@
 										"container": "brownz",
 										"folder": "users",
 										"file": {
-											"value": "@concat(pipeline().parameters.table,'_',variables('current'))",
+											"value": "@concat(item().table,'_',variables('current'))",
 											"type": "Expression"
 										}
 									}
@@ -176,7 +181,10 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"container": "brownz",
-													"folder": "users",
+													"folder": {
+														"value": "@{item().table}_cdc",
+														"type": "Expression"
+													},
 													"file": {
 														"value": "@concat(item().table,'_',variables('current'))",
 														"type": "Expression"
@@ -250,7 +258,10 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"container": "brownz",
-													"folder": "cdc",
+													"folder": {
+														"value": "@{item().table}_cdc",
+														"type": "Expression"
+													},
 													"file": "empty.json"
 												}
 											}
