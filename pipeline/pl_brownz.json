@@ -272,6 +272,10 @@
 								"secureInput": false
 							},
 							"userProperties": [],
+							"linkedServiceName": {
+								"referenceName": "AzSQL",
+								"type": "LinkedServiceReference"
+							},
 							"typeProperties": {
 								"scripts": [
 									{
